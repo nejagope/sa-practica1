@@ -1,0 +1,73 @@
+<html>
+  
+  <head>
+    <meta charset="utf8"/>
+    <title>Mi Biografía</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <style>
+      .jumbotron {
+        background: #13382f;
+        color: white;
+      }
+
+      .jumbotron p {
+        max-width: 75%;
+        margin: 1em auto 2em;
+      }
+
+      #phrase-container {
+        margin-top: 32px;
+      }
+
+      #phrase-container p {
+        font-size: 24px;
+        margin: 32px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>Mi pequeña biografía</h1>
+        <p>A continuación te mostraré algunos datos sobre mí</p>
+      </div>
+    </div>
+    <main>
+      <div class="container text-center">
+        <div class="row">
+          <button class="btn btn-lg btn-primary">Presiona aquí para saber más de mí</button>
+        </div>
+        <div class="row">
+          <div id="phrase-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      (function() {
+        const phrases = [
+          "Mi nombre es Nelson Jair González Pérez",
+          'Tengo 34 años',
+          'Nací y vivo en la Ciudad de Guatemala',
+          'Trabajo como Programador de Sistemas',
+          'Trabajo para una entidad gremial sin fines de lucro perteneciente al sector agrícola',
+          "Estudio en la Universidad de San Carlos de Guatemala",                    
+          "Pertenezco a la Escuela de Ciencias y Sistemas de la Facucltad de Ingeniería",
+          "Curso la carrera de Ingeniería en Ciencias y Sistemas",          
+          "Actualmente estoy llevando el curso de Software Avanzado",          
+          "Espero poder cerrar el pésum el año siguiente (2021)"                    
+        ];
+        let counter = 0;
+
+        const appendNewphrase = () => {
+          const p = document.createElement('p');
+          p.innerHTML = phrases[counter++] || "Ahora ya sabes un poco acerca de mí";
+          document.querySelector('#phrase-container').prepend(p);
+        }
+
+        const button = document.querySelector('button');
+        button.addEventListener('click', appendNewphrase);
+      })();
+    </script>
+  </body>
+</html>
